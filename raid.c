@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 		// raid 0
 		if(strcmp(T, "0") == 0){
 			disk = (block / C) % N;
-			stripe = (block % C) + ((block - (disk * C)) / N);
+			stripe = ((block / C) / N) * C + (block % C);
 			printf("%d %d\n", disk, stripe);
 		} else if (strcmp(T, "1") == 0) {
 			disk = 0;
@@ -34,6 +34,12 @@ int main(int argc, char** argv) {
 			stripe = block / (N / 2);
 			int disk2 = disk + (N / 2);
 			printf("%d %d %d\n", disk, stripe, disk2);
+		} else if (strcmp(T, "10") == 0) {
+
+		} else if (strcmp(T, "4") == 0) {
+
+		} else if (strcmp(T, "5") == 0) {
+
 		}
 	}
 
