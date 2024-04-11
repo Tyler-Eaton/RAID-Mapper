@@ -15,15 +15,15 @@ int main(int argc, char** argv) {
 
 	// iterate through list of queries
 	for(int i = 0; i < Q; i++) {
-		int block;
-		int disk;
-		int stripe;
+		uint block;
+		uint disk;
+		uint stripe;
 		// read in block
 		scanf("%d", &block);
 		// raid 0
 		if(strcmp(T, "0") == 0){
 			disk = (block / C) % N;
-			stripe = disk < N / 2 ? (block % C) + (block / N) : ((block % C) + (block / N) - 1);
+			stripe = (block % C) + ((block - (disk * C)) / N);
 			printf("%d %d\n", disk, stripe);
 		} else if (strcmp(T, "1") == 0) {
 			disk = 0;
