@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 int main(int argc, char** argv) {
 	// global variables
 	char* T = malloc(sizeof(char*));
@@ -36,7 +37,7 @@ int main(int argc, char** argv) {
 			disk2 = disk + (N / 2);
 			printf("%d %d %d\n", disk, stripe, disk2);
 		} else if (strcmp(T, "10") == 0) {
-			disk = block % (C + 1) + (block % (C + 1));
+			disk = block % (N / 2) * (C + 1);
 			stripe = block / (N / 2);
 			disk2 = disk + 1;
 			printf("%d %d %d\n", disk, stripe, disk2);
