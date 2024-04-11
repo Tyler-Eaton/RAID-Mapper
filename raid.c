@@ -18,6 +18,7 @@ int main(int argc, char** argv) {
 		uint block;
 		uint disk;
 		uint stripe;
+		uint disk2;
 		// read in block
 		scanf("%d", &block);
 		// raid 0
@@ -32,14 +33,23 @@ int main(int argc, char** argv) {
 		} else if (strcmp(T, "01") == 0) {
 			disk = block % (N / 2);
 			stripe = block / (N / 2);
-			int disk2 = disk + (N / 2);
+			disk2 = disk + (N / 2);
 			printf("%d %d %d\n", disk, stripe, disk2);
 		} else if (strcmp(T, "10") == 0) {
-
+			disk = block % (N / 2) * 2;
+			stripe = block / (N / 2);
+			disk2 = disk + 1;
+			printf("%d %d %d\n", disk, stripe, disk2);
 		} else if (strcmp(T, "4") == 0) {
-
+			disk = block % C;
+			stripe = block / (N / 2);
+			disk2 = disk + 1;
+			printf("%d %d %d\n", disk, stripe, disk2);
 		} else if (strcmp(T, "5") == 0) {
-
+			disk = block % (N/2) * 2;
+			stripe = block / (N / 2);
+			disk2 = disk + 1;
+			printf("%d %d %d\n", disk, stripe, disk2);
 		}
 	}
 
